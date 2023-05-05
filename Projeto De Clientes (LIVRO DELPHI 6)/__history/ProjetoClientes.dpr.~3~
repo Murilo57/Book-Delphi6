@@ -1,0 +1,17 @@
+program ProjetoClientes;
+
+uses
+  Forms,
+  UntPrincipal in 'UntPrincipal.pas' {FrmPrincipal},
+  UntIncluir in 'UntIncluir.pas' {FrmIncluir},
+  UntSobre in 'UntSobre.pas' {FrmSobre};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TFrmIncluir, FrmIncluir);
+  Application.CreateForm(TFrmSobre, FrmSobre);
+  Application.Run;
+end.

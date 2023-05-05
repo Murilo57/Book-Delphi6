@@ -1,0 +1,129 @@
+unit UntIncluir;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Menus, DBXpress, FMTBcd, DB, DBClient, Provider, SqlExpr,
+  Mask, DBCtrls, ExtCtrls;
+
+type
+  TFrmIncluir = class(TForm)
+    MenuPrincipal: TMainMenu;
+    Cliente: TMenuItem;
+    Incluir: TMenuItem;
+    Alterar: TMenuItem;
+    Excluir: TMenuItem;
+    Separador: TMenuItem;
+    Sair: TMenuItem;
+    Pesquisa: TMenuItem;
+    PorNome: TMenuItem;
+    PorCPF: TMenuItem;
+    Ajuda: TMenuItem;
+    Sobre: TMenuItem;
+    PopupPrincipal: TPopupMenu;
+    Cliente2Pop: TMenuItem;
+    IncluirPop: TMenuItem;
+    AlterarPop: TMenuItem;
+    ExcluirPop: TMenuItem;
+    PesquisaPop: TMenuItem;
+    PorNomePop: TMenuItem;
+    PorCPFpop: TMenuItem;
+    AjudaPop: TMenuItem;
+    SobrePop: TMenuItem;
+    SairPop: TMenuItem;
+    BtnLimpar: TButton;
+    BtnSair: TButton;
+    conexao: TSQLConnection;
+    sqlClientes: TSQLDataSet;
+    dspClientes: TDataSetProvider;
+    cdsClientes: TClientDataSet;
+    dtsClientes: TDataSource;
+    cdsClientesNOME: TStringField;
+    cdsClientesENDERECO: TStringField;
+    cdsClientesBAIRRO: TStringField;
+    cdsClientesCIDADE: TStringField;
+    cdsClientesESTADO: TStringField;
+    cdsClientesCEP: TStringField;
+    cdsClientesCPF: TStringField;
+    cdsClientesSEXO: TStringField;
+    cdsClientesTELEFONE: TStringField;
+    cdsClientesDATADENASCIMENTO: TDateField;
+    DBEnedereco: TDBEdit;
+    DBTelefone: TDBEdit;
+    DBCPF: TDBEdit;
+    DBDataNasc: TDBEdit;
+    DBNome: TDBEdit;
+    DBCidade: TDBEdit;
+    DBBairro: TDBEdit;
+    DBCEP: TDBEdit;
+    LblNome: TLabel;
+    LblEndereco: TLabel;
+    LblCidade: TLabel;
+    LblBairro: TLabel;
+    LblEstado: TLabel;
+    LblCEP: TLabel;
+    LblCPF: TLabel;
+    LblTelefone: TLabel;
+    LblDataNasc: TLabel;
+    DBComboBox2: TDBComboBox;
+    DBGroupRSexo: TDBRadioGroup;
+    BtnIncluir: TButton;
+    sqlClientesNOME: TStringField;
+    sqlClientesENDERECO: TStringField;
+    sqlClientesBAIRRO: TStringField;
+    sqlClientesCIDADE: TStringField;
+    sqlClientesESTADO: TStringField;
+    sqlClientesCEP: TStringField;
+    sqlClientesCPF: TStringField;
+    sqlClientesSEXO: TStringField;
+    sqlClientesTELEFONE: TStringField;
+    sqlClientesDATADENASCIMENTO: TDateField;
+    BtnSalvar: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure BtnLimparClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnIncluirClick(Sender: TObject);
+    procedure BtnSairClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmIncluir: TFrmIncluir;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmIncluir.BtnIncluirClick(Sender: TObject);
+begin
+  cdsClientes.Append;
+end;
+
+procedure TFrmIncluir.BtnLimparClick(Sender: TObject);
+begin
+  cdsClientes.Cancel;
+  cdsClientes.Append;
+end;
+
+procedure TFrmIncluir.BtnSairClick(Sender: TObject);
+begin
+  cdsClientes.Delete;
+  FrmIncluir.Close;
+end;
+
+procedure TFrmIncluir.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  cdsClientes.Delete;
+  FrmIncluir.Close;
+end;
+
+procedure TFrmIncluir.FormShow(Sender: TObject);
+begin
+  cdsClientes.Append;
+end;
+
+end.

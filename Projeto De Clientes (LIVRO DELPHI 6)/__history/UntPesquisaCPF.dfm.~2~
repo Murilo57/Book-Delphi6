@@ -1,0 +1,85 @@
+object FrmPesquisarPorCPF: TFrmPesquisarPorCPF
+  Left = 0
+  Top = 0
+  Caption = 'Pesquisa de Clientes por CPF'
+  ClientHeight = 421
+  ClientWidth = 471
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 20
+    Top = 280
+    Width = 214
+    Height = 16
+    Caption = 'Forne'#231'a o Nome a ser Pesquiado:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 25
+    Top = 65
+    Width = 421
+    Height = 175
+    DataSource = dtsClientes
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object EdtPesquisa: TEdit
+    Left = 250
+    Top = 279
+    Width = 196
+    Height = 21
+    TabOrder = 1
+    OnChange = EdtPesquisaChange
+  end
+  object BtnSair: TButton
+    Left = 159
+    Top = 350
+    Width = 75
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 2
+    OnClick = BtnSairClick
+  end
+  object sqlClientes: TSQLDataSet
+    SchemaName = 'SYSDBA'
+    CommandText = 'SELECT * FROM CLIENTES'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = FrmAlterar.conexao
+    Left = 10
+    Top = 15
+  end
+  object dspClientes: TDataSetProvider
+    DataSet = sqlClientes
+    Left = 45
+    Top = 15
+  end
+  object cdsClientes: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspClientes'
+    Left = 80
+    Top = 15
+  end
+  object dtsClientes: TDataSource
+    DataSet = cdsClientes
+    Left = 110
+    Top = 15
+  end
+end

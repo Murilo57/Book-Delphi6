@@ -1,0 +1,109 @@
+unit UntAlterar;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Menus, DBXpress, FMTBcd, DB, DBClient, Provider, SqlExpr,
+  Mask, DBCtrls, ExtCtrls;
+
+type
+  TFrmAlterar = class(TForm)
+    MenuPrincipal: TMainMenu;
+    Cliente: TMenuItem;
+    Incluir: TMenuItem;
+    Alterar: TMenuItem;
+    Excluir: TMenuItem;
+    Separador: TMenuItem;
+    Sair: TMenuItem;
+    Pesquisa: TMenuItem;
+    PorNome: TMenuItem;
+    PorCPF: TMenuItem;
+    Ajuda: TMenuItem;
+    Sobre: TMenuItem;
+    PopupPrincipal: TPopupMenu;
+    Cliente2Pop: TMenuItem;
+    IncluirPop: TMenuItem;
+    AlterarPop: TMenuItem;
+    ExcluirPop: TMenuItem;
+    PesquisaPop: TMenuItem;
+    PorNomePop: TMenuItem;
+    PorCPFpop: TMenuItem;
+    AjudaPop: TMenuItem;
+    SobrePop: TMenuItem;
+    SairPop: TMenuItem;
+    BtnAlterar: TButton;
+    BtnSair: TButton;
+    conexao: TSQLConnection;
+    sqlClientes: TSQLDataSet;
+    dspClientes: TDataSetProvider;
+    cdsClientes: TClientDataSet;
+    dtsClientes: TDataSource;
+    cdsClientesNOME: TStringField;
+    cdsClientesENDERECO: TStringField;
+    cdsClientesBAIRRO: TStringField;
+    cdsClientesCIDADE: TStringField;
+    cdsClientesESTADO: TStringField;
+    cdsClientesCEP: TStringField;
+    cdsClientesCPF: TStringField;
+    cdsClientesSEXO: TStringField;
+    cdsClientesTELEFONE: TStringField;
+    cdsClientesDATADENASCIMENTO: TDateField;
+    DBEnedereco: TDBEdit;
+    DBTelefone: TDBEdit;
+    DBCPF: TDBEdit;
+    DBDataNasc: TDBEdit;
+    DBNome: TDBEdit;
+    DBCidade: TDBEdit;
+    DBBairro: TDBEdit;
+    DBCEP: TDBEdit;
+    LblNome: TLabel;
+    LblEndereco: TLabel;
+    LblCidade: TLabel;
+    LblBairro: TLabel;
+    LblEstado: TLabel;
+    LblCEP: TLabel;
+    LblCPF: TLabel;
+    LblTelefone: TLabel;
+    LblDataNasc: TLabel;
+    DBComboBox2: TDBComboBox;
+    DBGroupRSexo: TDBRadioGroup;
+    DBNavigator: TDBNavigator;
+    procedure BtnAlterarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BtnSairClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmAlterar: TFrmAlterar;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmAlterar.BtnAlterarClick(Sender: TObject);
+begin
+ if  cdsClientes.State = dsEdit then cdsClientes.Post;
+end;
+
+procedure TFrmAlterar.BtnSairClick(Sender: TObject);
+begin
+  if cdsClientes.State = dsEdit then cdsClientes.Post;
+end;
+
+procedure TFrmAlterar.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if  cdsClientes.State = dsEdit then cdsClientes.Post;
+end;
+
+procedure TFrmAlterar.FormShow(Sender: TObject);
+begin
+  cdsClientes.Append;
+end;
+
+end.

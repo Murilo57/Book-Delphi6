@@ -1,0 +1,116 @@
+object FrmIncluir: TFrmIncluir
+  Left = 0
+  Top = 0
+  Caption = 'Dados do Novo Cliente'
+  ClientHeight = 286
+  ClientWidth = 536
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MenuPrincipal
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object BtnLimpar: TButton
+    Left = 230
+    Top = 235
+    Width = 75
+    Height = 25
+    Caption = 'Limpar'
+    TabOrder = 0
+  end
+  object BtnSair: TButton
+    Left = 366
+    Top = 235
+    Width = 75
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 1
+    OnClick = BtnSairClick
+  end
+  object BtnIncluir: TButton
+    Left = 94
+    Top = 235
+    Width = 75
+    Height = 25
+    Margins.Left = 94
+    Margins.Top = 268
+    Caption = 'Incluir'
+    TabOrder = 2
+  end
+  object MenuPrincipal: TMainMenu
+    Top = 5
+    object Cliente: TMenuItem
+      Caption = '&Cliente'
+      object Incluir: TMenuItem
+        Caption = '&Incluir'
+      end
+      object Alterar: TMenuItem
+        Caption = '&Alterar'
+      end
+      object Excluir: TMenuItem
+        Caption = '&Excluir'
+      end
+      object Separador: TMenuItem
+        Caption = '__________'
+      end
+      object Sair: TMenuItem
+        Caption = '&Sair'
+        ShortCut = 32856
+      end
+    end
+    object Pesquisa: TMenuItem
+      Caption = '&Pesquisa'
+      object PorNome: TMenuItem
+        Caption = 'Por Nome'
+      end
+      object PorCPF: TMenuItem
+        Caption = 'Por CPF'
+      end
+    end
+    object Ajuda: TMenuItem
+      Caption = 'Ajuda'
+      object Sobre: TMenuItem
+        Caption = 'Sobre'
+      end
+    end
+  end
+  object PopupPrincipal: TPopupMenu
+    Left = 40
+    Top = 5
+    object Cliente2Pop: TMenuItem
+      Caption = '&Cliente'
+      object IncluirPop: TMenuItem
+        Caption = '&Incluir'
+      end
+      object AlterarPop: TMenuItem
+        Caption = '&Alterar'
+      end
+      object ExcluirPop: TMenuItem
+        Caption = '&Excluir'
+      end
+    end
+    object PesquisaPop: TMenuItem
+      Caption = '&Pesquisa'
+      object PorNomePop: TMenuItem
+        Caption = 'Por Nome'
+      end
+      object PorCPFpop: TMenuItem
+        Caption = 'Por CPF'
+      end
+    end
+    object AjudaPop: TMenuItem
+      Caption = '&Ajuda'
+      object SobrePop: TMenuItem
+        Caption = '&Sobre'
+      end
+    end
+    object SairPop: TMenuItem
+      Caption = '&Sair'
+      ShortCut = 32856
+    end
+  end
+end
